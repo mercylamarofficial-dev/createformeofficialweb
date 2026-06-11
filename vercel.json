@@ -1,0 +1,24 @@
+{
+  "version": 2,
+  "framework": "vite",
+  "builds": [
+    {
+      "src": ".output/server/index.mjs",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/_ms/(.*)",
+      "dest": "/.output/server/index.mjs"
+    },
+    {
+      "src": "/assets/(.*)",
+      "dest": "/.output/public/assets/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/.output/server/index.mjs"
+    }
+  ]
+}
